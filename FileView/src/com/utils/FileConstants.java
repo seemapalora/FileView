@@ -19,5 +19,9 @@ public class FileConstants {
 	public static final String SPAN_START = "<span>";
 	public static final String SPAN_END = "</span>";
 	public static final String HIDDEN = "[hidden]";
+	public static final String UL2 = "</UL>";
+	public static final String LI2 = "</LI>";
+	public static final String LI = "<LI>";
+	public static final String UL = "<UL>";
 
 }

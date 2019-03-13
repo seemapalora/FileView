@@ -23,5 +23,6 @@ public class FileConstants {
 	public static final String LI2 = "</LI>";
 	public static final String LI = "<LI>";
 	public static final String UL = "<UL>";
+	public static final String LAST_MODIFIED_DATE = "last modified ";
 
 }

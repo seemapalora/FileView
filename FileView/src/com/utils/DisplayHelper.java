@@ -3,6 +3,7 @@ package com.utils;
 import com.model.File;
 import com.model.Folder;
 import com.model.Node;
+import static com.utils.FileConstants.*;
 
 public class DisplayHelper {
 
@@ -11,19 +12,23 @@ public class DisplayHelper {
 		switch (node.getClass().getSimpleName()) {
 
 		case "File":
+			builder.append(P_STYLE_PADDING_LEFT_60PX_STRONG_START).append(STRONG_START).
+			append(node.getName()).append(STRONG_END).append(OPEN_BRACKET).append(((File) node).getSize()).append(BYTES).append(COMMA)
+			.append(((File) node).getLastModifiedDate()).append(CLOSE_BRACKET).append(BREAK).append(SPAN_END).append(P_CLOSE);
+			break;
 		case "HiddenFile":
-			builder.append(FileConstants.P_STYLE_PADDING_LEFT_60PX_STRONG_START).append(FileConstants.STRONG_START).
-			append(node.getName()).append(FileConstants.STRONG_END).append(FileConstants.OPEN_BRACKET).append(((File) node).getSize()).append(FileConstants.BYTES)
-			.append(((File) node).getLastModifiedDate()).append(FileConstants.CLOSE_BRACKET).append(FileConstants.BREAK).append(FileConstants.SPAN_END).append(FileConstants.P_CLOSE);
+			builder.append(P_STYLE_PADDING_LEFT_60PX_STRONG_HIDDEN_START).append(STRONG_START).
+			append(node.getName()).append(STRONG_END).append(OPEN_BRACKET).append(((File) node).getSize()).append(BYTES).append(COMMA)
+			.append(((File) node).getLastModifiedDate()).append(CLOSE_BRACKET).append(HIDDEN).append(BREAK).append(SPAN_END).append(P_CLOSE);
 
 			break;
 		case "Folder":
-			builder.append(FileConstants.P_OPEN).append(FileConstants.STRONG_START).append(node.getName()).append(FileConstants.OPEN_BRACKET).
-			append(((Folder) node).getSize()).append(FileConstants.BYTES).append(FileConstants.STRONG_END).append(FileConstants.BREAK).append(FileConstants.P_CLOSE);
+			builder.append(P_OPEN).append(STRONG_START).append(node.getName()).append(OPEN_BRACKET).
+			append(((Folder) node).getSize()).append(BYTES).append(CLOSE_BRACKET).append(STRONG_END).append(BREAK).append(P_CLOSE);
 			break;
 		case "RemoteFolder":
-			builder.append(FileConstants.P_OPEN).append(FileConstants.STRONG_START).append(node.getName()).append(FileConstants.OPEN_BRACKET).
-			append(((Folder) node).getSize()).append(FileConstants.BYTES).append(FileConstants.STRONG_END).append(FileConstants.BREAK).append(FileConstants.P_CLOSE);
+			builder.append(P_STYLE_PADDING_LEFT_60PX_STRONG_START).append(EM_START).append(STRONG_START).append(node.getName()).append(OPEN_BRACKET).
+			append(((Folder) node).getSize()).append(BYTES).append(CLOSE_BRACKET).append(EM_END).append(STRONG_END).append(BREAK).append(P_CLOSE);
 			break;
 		default:
 			break;

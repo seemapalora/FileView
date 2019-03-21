@@ -1,14 +1,18 @@
 package com.model;
 
+import static com.utils.FileConstants.BREAK;
+import static com.utils.FileConstants.BYTES;
+import static com.utils.FileConstants.CLOSE_BRACKET;
 import static com.utils.FileConstants.LI;
 import static com.utils.FileConstants.LI2;
+import static com.utils.FileConstants.OPEN_BRACKET;
+import static com.utils.FileConstants.STRONG_END;
+import static com.utils.FileConstants.STRONG_START;
 import static com.utils.FileConstants.UL;
 import static com.utils.FileConstants.UL2;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.utils.DisplayHelper;
 
 public class Folder extends Node {
 	
@@ -27,7 +31,9 @@ public class Folder extends Node {
 	}
 
 	public String asHTML() {
-		StringBuilder builder = new StringBuilder(DisplayHelper.getDisplayHtML(this));
+		StringBuilder builder = new StringBuilder();
+		builder.append(STRONG_START).append(this.getName()).append(OPEN_BRACKET).
+		append(this.getSize()).append(BYTES).append(CLOSE_BRACKET).append(STRONG_END).append(BREAK);
 		builder.append(UL);
 		for (Node content : contents) {
 			builder.append(LI);

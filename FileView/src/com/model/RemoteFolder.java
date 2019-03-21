@@ -1,27 +1,29 @@
 package com.model;
 
-import com.utils.DisplayHelper;
-import static  com.utils.FileConstants.*;
+import static com.utils.FileConstants.BREAK;
+import static com.utils.FileConstants.EM_END;
+import static com.utils.FileConstants.EM_START;
+import static com.utils.FileConstants.P_CLOSE;
+import static com.utils.FileConstants.P_STYLE_PADDING_LEFT_60PX_STRONG_START;
 
 public class RemoteFolder extends Folder {
 	
-	int size;
-
 	public RemoteFolder(String name) {
 		super(name);
-		this.size = zeroFileSize;
+	}
+	
+	@Override
+	public int getSize(){
+		return 0;
 	}
 	
 	@Override
 	public String asHTML() {
-		StringBuilder builder = new StringBuilder(DisplayHelper.getDisplayHtML(this));
-		builder.append(UL);
-		for (Node content : contents) {
-			builder.append(LI);
-			builder.append(content.asHTML());
-			builder.append(LI2);
-		}
-		builder.append(UL2);
+		StringBuilder builder = new StringBuilder();
+		builder.append(EM_START);
+		builder.append(P_STYLE_PADDING_LEFT_60PX_STRONG_START);
+		builder.append(super.asHTML());
+		builder.append(EM_END).append(P_CLOSE).append(BREAK);
 		return builder.toString();
 	}
 

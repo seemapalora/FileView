@@ -2,7 +2,6 @@ package com.utils;
 
 public class FileConstants {
 	
-	public static final int zeroFileSize = 0;
 	public static final String BREAK = "<br />";
 	public static final String CLOSE_BRACKET = ")";
 	public static final String OPEN_BRACKET = "(";
